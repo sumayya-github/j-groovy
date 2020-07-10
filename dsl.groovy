@@ -18,7 +18,7 @@ job("Groovy 1")
 	}
 	concurrentBuild(false)
 	steps {
-		shell('sudo cp -r -v -f * /t6')
+		shell('sudo cp -r -v -f * /t3')
 	}
 }
 
@@ -33,20 +33,19 @@ then
  then
  echo "Service for apache is Running"
  else
- sudo kubectl create -f /t6/apache_svc.yml 
+ sudo kubectl create -f /t3/apache_svc.yml 
  fi
  if sudo kubectl get pvc | grep apache-pvc
  then
  echo " PVC for apache is already running"
  else
- sudo kubectl create -f /t6/apache_pvc.yml 
+ sudo kubectl create -f /t3/apache_pvc.yml 
  fi
  if sudo kubectl get deploy | grep apache_deploy
  then
  echo "Deployment for apache running"
  else
- sudo  kubectl create -f /t6/apache_deploy.yml
- fi
+ sudo  kubectl create -f /t3/apache_deploy.yml
 else 
 echo "no html code from developer to host"
 fi ''')
