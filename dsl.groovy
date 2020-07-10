@@ -48,7 +48,8 @@ then
  sudo kubectl create -f /t3/apache_deploy.yml
 else 
 echo "no html code from developer to host"
-fi """)
+fi 
+sudo kubectl get all """)
 }
 triggers {
    upstream('Groovy 1', 'SUCCESS')
