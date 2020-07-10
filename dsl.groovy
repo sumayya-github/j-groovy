@@ -1,4 +1,5 @@
-job("Groovy 1") {
+job("Groovy 1") 
+     {
 	description("This is the first job of groovy project")
 	keepDependencies(false)
 	scm {
@@ -47,7 +48,7 @@ then
  sudo  kubectl create -f /t6/apache_deploy.yml
 else 
 echo "no html code from developer to host"
-fi
+fi ''')
 }
 triggers {
    upstream('Groovy 1', 'SUCCESS')
