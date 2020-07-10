@@ -46,6 +46,7 @@ then
  echo "Deployment for apache running"
  else
  sudo  kubectl create -f /t3/apache_deploy.yml
+ fi
 else 
 echo "no html code from developer to host"
 fi ''')
