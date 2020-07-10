@@ -37,7 +37,6 @@ echo "POD DOES NOT EXISTS,GOING TO CREATE IT"
 sudo kubectl create -f /t3/apache_svc.yml
 sudo kubectl create -f /t3/apache_pvc.yml
 sudo kubectl create -f /t3/apache_deploy.yml
-sudo kubectl expose deployment apache --type=NodePort --port=80
 fi 
 sudo kubectl get all """)
 }
