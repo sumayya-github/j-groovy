@@ -46,6 +46,7 @@ then
  echo "Deployment for apache running"
  else
  sudo  kubectl create -f /t6/apache_deploy.yml
+ fi
 else 
 echo "no html code from developer to host"
 fi ''')
@@ -72,7 +73,7 @@ exit 0
 else
 exit 1
 fi""")
-	}
+}
 	
 job("Groovy 4")
 {
@@ -95,4 +96,4 @@ buildPipelineView('Groovy Project') {
     showPipelineParameters()
     refreshFrequency(60)
     }
-}
+
