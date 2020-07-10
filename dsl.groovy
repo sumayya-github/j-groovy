@@ -26,7 +26,7 @@ job("Groovy 2")
 {
 description ("This is my second job for Groovy project ")
 steps{
-shell('''
+shell("""
 if sudo ls /t3 | grep html
 then
  if sudo kubectl get svc | grep apache-svc
@@ -45,11 +45,10 @@ then
  then
  echo "Deployment for apache running"
  else
- fi
- sudo  kubectl create -f /t3/apache_deploy.yml
+ sudo kubectl create -f /t3/apache_deploy.yml
 else 
 echo "no html code from developer to host"
-fi ''')
+fi """)
 }
 triggers {
    upstream('Groovy 1', 'SUCCESS')
