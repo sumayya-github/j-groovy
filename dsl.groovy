@@ -95,3 +95,4 @@ buildPipelineView('Groovy Project') {
     showPipelineParameters()
     refreshFrequency(60)
     }
+}
