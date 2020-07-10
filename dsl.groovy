@@ -27,27 +27,17 @@ job("Groovy 2")
 description ("This is my second job for Groovy project ")
 steps{
 shell("""
-if sudo ls /t3 | grep html
+if sudo kubectl get all | grep apache
 then
- if sudo kubectl get svc | grep apache-svc
- then
- echo "Service for apache is Running"
- else
- sudo kubectl create -f /t3/apache_svc.yml 
- fi
- if sudo kubectl get pvc | grep apache-pvc
- then
- echo " PVC for apache is already running"
- else
- sudo kubectl create -f /t3/apache_pvc.yml 
- fi
- if sudo kubectl get deploy | grep apache_deploy
- then
- echo "Deployment for apache running"
- else
- sudo kubectl create -f /t3/apache_deploy.yml
-else 
-echo "no html code from developer to host"
+echo "PODS EXISTS,GOING TO DELETE IT"
+sudo kubectl delete all --all
+sudo kubectl delete apache-pv-claim1
+else
+echo "POD DOES NOT EXISTS,GOING TO CREATE IT"
+sudo kubectl create -f /t3/apache_svc.yml
+sudo kubectl create -f /t3/apache_pvc.yml
+sudo kubectl create -f /t3/apache_deploy.yml
+sudo kubectl expose deployment apache --type=NodePort --port=80
 fi 
 sudo kubectl get all """)
 }
