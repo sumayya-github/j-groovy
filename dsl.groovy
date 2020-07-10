@@ -5,7 +5,7 @@ job("Groovy 1")
 	scm {
 		git {
 			remote {
-				github("sumayya-github/jenkins-groovy", "https")
+				github("sumayya-github/j-groovy", "https")
 			}
 			branch("*/master")
 		}
